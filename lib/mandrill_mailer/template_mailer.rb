@@ -244,10 +244,11 @@ module MandrillMailer
       end
 
       # Construct message hash
+      _defaults = self.class.defaults || self.class.superclass.defaults
       self.message = {
         "subject" => args[:subject],
-        "from_email" => args[:from] || self.class.defaults[:from],
-        "from_name" => args[:from_name] || self.class.defaults[:from_name] || self.class.defaults[:from],
+        "from_email" => args[:from] || _defaults[:from],
+        "from_name" => args[:from_name] || _defaults[:from_name] || _defaults[:from],
         "to" => args[:to],
         "headers" => args[:headers],
         "important" => args[:important],
