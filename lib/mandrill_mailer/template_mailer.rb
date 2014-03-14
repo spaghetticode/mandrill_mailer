@@ -244,7 +244,7 @@ module MandrillMailer
       end
 
       # Construct message hash
-      _defaults = self.class.defaults || self.class.superclass.defaults
+      _defaults = self.class.defaults || self.class.superclass.defaults # TODO improve
       self.message = {
         "subject" => args[:subject],
         "from_email" => args[:from] || _defaults[:from],
